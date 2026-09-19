@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}My Matches - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="matches-page">
+
+    <!-- Page Heading -->
+    <div class="matches-heading">
+        <h1>⭐ Your Skill Matches</h1>
+        <p>
+            We found students who may be a good
+            skill-exchange partner for you.
+        </p>
+    </div>
+
+
+    {% if matches %}
+
+    <!-- Matches Container -->
+    <section class="matches-container">
+
+        <div class="matches-grid">
+
+            {% for match in matches %}
+
+            <!-- Match Card -->
+            <div class="match-card">
+
+                <!-- Match Score -->
+                <div class="match-score">
+                    ⭐ {{ match["score"] }}% Match
+                </div>
+
+
+                <!-- Avatar -->
+                <div class="match-avatar">
+                    {{ match["full_name"][0] | upper }}
+                </div>
+
+
+                <!-- Name -->
+                <h2>
+                    {{ match["full_name"] }}
+                </h2>
+
+
+                <!-- College -->
+                <p class="match-college">
+                    🎓 {{ match["college"] or "College not added" }}
+                </p>
+
+
+                <!-- Can Teach You -->
+                {% if match["can_teach_me"] %}
+
+                <div class="match-section teach-match">
+
+                    <strong>
+                        🎓 Can Teach You
+                    </strong>
+
+                    <p>
+                        {% for skill in match["can_teach_me"] %}
+                            {{ skill|title }}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- Wants to Learn From You -->
+                {% if match["can_learn_from_me"] %}
+
+                <div class="match-section learn-match">
+
+                    <strong>
+                        📚 Wants to Learn From You
+                    </strong>
+
+                    <p>
+                        {% for skill in match["can_learn_from_me"] %}
+                            {{ skill|title }}
+                            {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- Buttons -->
+                <div class="match-buttons">
+
+                    <a href="{{ url_for('student_profile', student_id=match['id']) }}"
+   class="view-profile-button">
+    👁 View Profile
+</a>
+                    <a
+                        href="{{ url_for('connect', student_id=match['id']) }}"
+                        class="send-request-button">
+                        🤝 Connect
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    {% else %}
+
+    <!-- No Matches Container -->
+    <section class="no-matches">
+
+        <div class="no-match-icon">
+            🔍
+        </div>
+
+        <h2>
+            No Matches Yet
+        </h2>
+
+        <p>
+            Add skills you want to learn and skills
+            you can teach to find suitable students.
+        </p>
+
+        <a href="/skills">
+            Add My Skills
+        </a>
+
+    </section>
+
+    {% endif %}
+
+</main>
+
+{% endblock %}

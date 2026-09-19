@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}My Connections - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="connections-page">
+
+    <!-- ==========================================
+         PAGE HEADER
+         ========================================== -->
+
+    <div class="connections-header">
+
+        <div>
+            <h1>My Connections 🤝</h1>
+            <p>Connect and learn with other students.</p>
+        </div>
+
+        <a href="{{ url_for('students') }}" class="find-students-btn">
+            🔍 Find Students
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================
+         PENDING REQUESTS
+         ========================================== -->
+
+    <section class="connections-section">
+
+        <div class="section-heading">
+
+            <div class="section-icon">
+                📩
+            </div>
+
+            <div>
+                <h2>Connection Requests</h2>
+                <p>Students who want to connect with you.</p>
+            </div>
+
+        </div>
+
+
+        {% if pending_requests %}
+
+        <div class="connections-grid">
+
+            {% for req in pending_requests %}
+
+            <div class="connection-card">
+
+                <!-- Student Avatar -->
+                <div class="connection-avatar">
+                    {{ req["full_name"][0] | upper }}
+                </div>
+
+
+                <!-- Student Details -->
+                <div class="connection-details">
+
+                    <h3>
+                        {{ req["full_name"] }}
+                    </h3>
+
+                    <p class="college">
+                        🎓 {{ req["college"] or "College not added" }}
+                    </p>
+
+                    {% if req["bio"] %}
+                    <p class="bio">
+                        {{ req["bio"] }}
+                    </p>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Request Status -->
+                <span class="pending-badge">
+                    ● Pending
+                </span>
+
+
+                <!-- Buttons -->
+                <div class="connection-actions">
+
+                    <a
+                        href="{{ url_for('student_profile', student_id=req['student_id']) }}"
+                        class="view-profile-btn">
+                        👤 View Profile
+                    </a>
+
+                    <a
+                        href="{{ url_for('accept_connection', connection_id=req['id']) }}"
+                        class="accept-btn">
+                        ✓ Accept
+                    </a>
+
+                    <a
+                        href="{{ url_for('reject_connection', connection_id=req['id']) }}"
+                        class="reject-btn">
+                        ✕ Reject
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📭
+            </div>
+
+            <h3>No Pending Requests</h3>
+
+            <p>
+                You don't have any new connection requests.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- ==========================================
+         ACCEPTED CONNECTIONS
+         ========================================== -->
+
+    <section class="connections-section">
+
+        <div class="section-heading">
+
+            <div class="section-icon">
+                🤝
+            </div>
+
+            <div>
+                <h2>My Connections</h2>
+                <p>Students you are connected with.</p>
+            </div>
+
+        </div>
+
+
+        {% if accepted_connections %}
+
+        <div class="connections-grid">
+
+            {% for connection in accepted_connections %}
+
+            <div class="connection-card accepted-card">
+
+                <!-- Student Avatar -->
+                <div class="connection-avatar">
+                    {{ connection["full_name"][0] | upper }}
+                </div>
+
+
+                <!-- Student Details -->
+                <div class="connection-details">
+
+                    <h3>
+                        {{ connection["full_name"] }}
+                    </h3>
+
+                    <p class="college">
+                        🎓 {{ connection["college"] or "College not added" }}
+                    </p>
+
+                    {% if connection["bio"] %}
+                    <p class="bio">
+                        {{ connection["bio"] }}
+                    </p>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Connected Badge -->
+                <span class="connected-badge">
+                    ✓ Connected
+                </span>
+
+
+                <!-- Buttons -->
+                <div class="connection-actions">
+
+                    <a
+                        href="{{ url_for('student_profile', student_id=connection['student_id']) }}"
+                        class="view-profile-btn">
+                        👤 View Profile
+                    </a>
+
+                    <a href="/chat/{{ connection['student_id'] }}"
+   class="primary-btn">
+    💬 Chat
+</a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🤝
+            </div>
+
+            <h3>No Connections Yet</h3>
+
+            <p>
+                Find students who share your skills and interests.
+            </p>
+
+            <a
+                href="{{ url_for('students') }}"
+                class="find-students-btn">
+                🔍 Find Students
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+{% endblock %}

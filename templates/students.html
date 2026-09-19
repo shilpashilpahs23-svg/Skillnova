@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% block title %}Find Students - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="students-page">
+
+    <!-- PAGE HEADER -->
+    <div class="students-heading">
+
+        <h1>
+            Find Students 🔎
+        </h1>
+
+        <p>
+            Search students by the skill you want to learn.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH CARD -->
+    <section class="student-search-card">
+
+        <div class="search-card-title">
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+            <div>
+                <h2>Search for a Skill</h2>
+
+                <p>
+                    Find students who can teach the skill
+                    you want to learn.
+                </p>
+            </div>
+
+        </div>
+
+
+        <form method="GET" action="/students">
+
+            <div class="student-search-box">
+
+                <input
+                    type="text"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Example: Guitar, Dance, Singing">
+
+                <button type="submit">
+                    🔍 Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- SEARCH RESULT HEADING -->
+
+    <div class="search-result-title">
+
+        {% if search %}
+
+            <div>
+                <h2>
+                    Results for "{{ search }}"
+                </h2>
+
+                <p>
+                    Students matching your search
+                </p>
+            </div>
+
+            <a href="/students" class="clear-search-button">
+                ✕ Clear Search
+            </a>
+
+        {% else %}
+
+            <div>
+                <h2>
+                    Students
+                </h2>
+
+                <p>
+                    Explore students and their skills
+                </p>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- STUDENTS -->
+
+    {% if students %}
+
+    <section class="students-grid">
+
+        {% for student in students %}
+
+        <div class="student-profile-card">
+
+            <!-- AVATAR -->
+            <div class="student-avatar">
+                {{ student["full_name"][0] | upper }}
+            </div>
+
+
+            <!-- NAME -->
+            <h2>
+                {{ student["full_name"] }}
+            </h2>
+
+
+            <!-- COLLEGE -->
+            <p class="student-college">
+                🎓 {{ student["college"] or "College not added" }}
+            </p>
+
+
+            <!-- BIO -->
+
+            {% if student["bio"] %}
+
+            <p class="student-bio">
+                {{ student["bio"] }}
+            </p>
+
+            {% else %}
+
+            <p class="student-bio">
+                This student has not added a bio yet.
+            </p>
+
+            {% endif %}
+
+
+            <!-- STATUS -->
+            <span class="student-active-status">
+                ● Active Student
+            </span>
+
+
+            <!-- BUTTONS -->
+
+            <div class="student-card-buttons">
+
+                <a href="{{ url_for('student_profile', student_id=student['id']) }}"
+   class="view-profile-button">
+    👁 View Profile
+</a>
+
+
+                <a
+                    href="/connect/{{ student['id'] }}"
+                    class="connect-button">
+
+                    🤝 Connect
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+
+    {% else %}
+
+    <!-- NO STUDENTS -->
+
+    <section class="no-students">
+
+        <div class="no-students-icon">
+            🔍
+        </div>
+
+        <h2>
+            No students found
+        </h2>
+
+        {% if search %}
+
+        <p>
+            We couldn't find anyone who can teach
+            "{{ search }}".
+        </p>
+
+        {% else %}
+
+        <p>
+            There are no students available right now.
+        </p>
+
+        {% endif %}
+
+
+        <a href="/students" class="view-all-students">
+            View All Students
+        </a>
+
+    </section>
+
+    {% endif %}
+
+
+</main>
+
+{% endblock %}

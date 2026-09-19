@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkillNova - Student Skill Exchange</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- ================================
+     NAVBAR
+================================ -->
+
+<nav class="home-navbar">
+
+    <div class="home-logo">
+        SkillNova
+    </div>
+
+    <div class="home-nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/login">Login</a>
+
+        <a href="/register"
+           class="nav-register">
+            Register
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================================
+     HERO SECTION
+================================ -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            🎓 Student Skill Exchange Platform
+        </span>
+
+        <h1>
+            Discover Skills.<br>
+            <span>Connect & Exchange.</span>
+        </h1>
+
+        <p>
+            SkillNova helps students discover talented people,
+            share their skills, learn something new and build
+            meaningful connections.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/register"
+               class="hero-btn primary">
+                Get Started
+            </a>
+
+            <a href="/login"
+               class="hero-btn secondary">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="floating-card card-one">
+
+            <div class="card-icon">
+                🎵
+            </div>
+
+            <div>
+                <strong>Music</strong>
+                <small>Share your skill</small>
+            </div>
+
+        </div>
+
+
+        <div class="main-visual">
+
+            <div class="visual-icon">
+                🎯
+            </div>
+
+            <h2>
+                Find Your Skill Match
+            </h2>
+
+            <p>
+                Learn from students
+                who have the skills
+                you want to learn.
+            </p>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+            <div class="card-icon">
+                💃
+            </div>
+
+            <div>
+                <strong>Dance</strong>
+                <small>Learn something new</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     WHY SKILLNOVA
+================================ -->
+
+<section class="why-section">
+
+    <div class="section-heading">
+
+        <span>
+            ✨ FEATURES
+        </span>
+
+        <h2>
+            Why SkillNova?
+        </h2>
+
+        <p>
+            Everything you need to discover,
+            exchange and grow your skills.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🎯
+            </div>
+
+            <h3>
+                Find Your Match
+            </h3>
+
+            <p>
+                Discover students whose skills
+                match your learning interests.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🤝
+            </div>
+
+            <h3>
+                Connect
+            </h3>
+
+            <p>
+                Connect with talented students
+                and exchange knowledge.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔄
+            </div>
+
+            <h3>
+                Exchange Skills
+            </h3>
+
+            <p>
+                Teach what you know and learn
+                something you want to improve.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 4 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💬
+            </div>
+
+            <h3>
+                Chat & Connect
+            </h3>
+
+            <p>
+                Communicate with your connections
+                through the SkillNova platform.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     SKILLS SECTION
+================================ -->
+
+<section class="skills-showcase">
+
+    <div class="skills-text">
+
+        <span>
+            🌟 SHARE YOUR TALENT
+        </span>
+
+        <h2>
+            Your Skill Can<br>
+            Inspire Someone.
+        </h2>
+
+        <p>
+            Whether you are good at singing,
+            dancing, coding, drawing, music,
+            acting or another creative skill,
+            SkillNova gives you a place to share it.
+        </p>
+
+        <a href="/register"
+           class="hero-btn primary">
+            Join SkillNova
+        </a>
+
+    </div>
+
+
+    <div class="skills-box">
+
+        <div class="skill-pill">
+            🎵 Singing
+        </div>
+
+        <div class="skill-pill">
+            💃 Dance
+        </div>
+
+        <div class="skill-pill">
+            🎸 Music
+        </div>
+
+        <div class="skill-pill">
+            💻 Coding
+        </div>
+
+        <div class="skill-pill">
+            🎨 Drawing
+        </div>
+
+        <div class="skill-pill">
+            🎭 Acting
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     CTA
+================================ -->
+
+<section class="cta-section">
+
+    <h2>
+        Ready to exchange your skills?
+    </h2>
+
+    <p>
+        Join SkillNova and start discovering
+        talented students today.
+    </p>
+
+    <a href="/register"
+       class="cta-button">
+        Create Your Account
+    </a>
+
+</section>
+
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer class="home-footer">
+
+    <div>
+        <strong>SkillNova</strong>
+
+        <p>
+            Student Skill Exchange Platform
+        </p>
+    </div>
+
+    <div>
+        <p>
+            © 2026 SkillNova
+        </p>
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

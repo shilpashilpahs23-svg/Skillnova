@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block title %}My Skills - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="skills-page">
+
+    <!-- PAGE TITLE -->
+    <div class="skills-title">
+        <h1>My Skills 🎨</h1>
+        <p>
+            Add skills you can teach and skills you want to learn.
+        </p>
+    </div>
+
+
+    <!-- ADD SKILL FORM -->
+    <section class="add-skill-card">
+
+        <h2>Add a Skill</h2>
+
+        <p class="form-description">
+            Tell us what you can teach or what you want to learn.
+        </p>
+
+        <form method="POST">
+
+            <!-- Skill Name -->
+            <div class="skill-form-group">
+
+                <label for="skill_name">
+                    Skill Name
+                </label>
+
+                <input
+                    type="text"
+                    id="skill_name"
+                    name="skill_name"
+                    placeholder="Example: Dance, Singing, Guitar"
+                    required>
+
+            </div>
+
+
+            <!-- Skill Type -->
+            <div class="skill-form-group">
+
+                <label>Skill Type</label>
+
+                <div class="skill-type-options">
+
+                    <label class="type-option">
+
+                        <input
+                            type="radio"
+                            name="skill_type"
+                            value="Can Teach"
+                            required>
+
+                        <span>🎓 I Can Teach</span>
+
+                    </label>
+
+
+                    <label class="type-option">
+
+                        <input
+                            type="radio"
+                            name="skill_type"
+                            value="Want to Learn">
+
+                        <span>📚 I Want to Learn</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- Level -->
+            <div class="skill-form-group">
+
+                <label for="level">
+                    Skill Level
+                </label>
+
+                <select
+                    id="level"
+                    name="level"
+                    required>
+
+                    <option value="">
+                        Select your level
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Submit -->
+            <button
+                type="submit"
+                class="add-skill-button">
+
+                + Add Skill
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- MY SKILLS -->
+    <section class="my-skills-section">
+
+        <div class="skills-section-heading">
+
+            <h2>My Added Skills</h2>
+
+            <span>
+                {{ skills|length }} Skills
+            </span>
+
+        </div>
+
+
+        {% if skills %}
+
+        <div class="skills-grid">
+
+            {% for skill in skills %}
+
+            <div class="skill-card">
+
+                <!-- TOP -->
+                <div class="skill-card-top">
+
+                    <div class="skill-card-icon">
+
+                        {% if skill["skill_name"]|lower == "dance" %}
+                            💃
+
+                        {% elif skill["skill_name"]|lower == "singing" %}
+                            🎤
+
+                        {% elif skill["skill_name"]|lower == "music" %}
+                            🎵
+
+                        {% elif skill["skill_name"]|lower == "acting" %}
+                            🎭
+
+                        {% elif skill["skill_name"]|lower == "guitar" %}
+                            🎸
+
+                        {% elif skill["skill_name"]|lower == "drawing" %}
+                            🎨
+
+                        {% elif skill["skill_name"]|lower == "photography" %}
+                            📷
+
+                        {% else %}
+                            ⭐
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- DELETE -->
+                    <form
+                        action="{{ url_for('delete_skill', skill_id=skill['id']) }}"
+                        method="POST"
+                        class="delete-skill-form"
+                        onsubmit="return confirm('Are you sure you want to delete this skill?');">
+
+                        <button
+                            type="submit"
+                            class="delete-skill"
+                            title="Delete Skill">
+
+                            🗑️
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- NAME -->
+                <h3>
+                    {{ skill["skill_name"] }}
+                </h3>
+
+
+                <!-- TYPE -->
+                {% if skill["skill_type"] == "Can Teach" %}
+
+                    <span class="teach-badge">
+                        🎓 Can Teach
+                    </span>
+
+                {% else %}
+
+                    <span class="learn-badge">
+                        📚 Want to Learn
+                    </span>
+
+                {% endif %}
+
+
+                <!-- LEVEL -->
+                <p class="skill-level-text">
+
+                    Level:
+
+                    <strong>
+                        {{ skill["level"] }}
+                    </strong>
+
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <!-- NO SKILLS -->
+        <div class="no-skills-message">
+
+            <div class="no-skill-icon">
+                🎯
+            </div>
+
+            <h3>
+                No skills added yet
+            </h3>
+
+            <p>
+                Add your first skill to start finding
+                suitable students.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- MATCHING INFORMATION -->
+    <section class="skill-info-box">
+
+        <div class="info-icon">
+            🔄
+        </div>
+
+        <div>
+
+            <h2>
+                How Skill Matching Works
+            </h2>
+
+            <p>
+                If you can teach a skill that another
+                student wants to learn, SkillNova can
+                suggest you as a suitable match.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

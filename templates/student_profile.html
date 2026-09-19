@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}Student Profile - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="public-profile-page">
+
+    <!-- BACK BUTTON -->
+    <a href="/students" class="back-button">
+        ← Back to Students
+    </a>
+
+
+    <!-- PROFILE CARD -->
+    <section class="public-profile-card">
+
+        <!-- PROFILE HEADER -->
+        <div class="public-profile-header">
+
+            <div class="large-student-avatar">
+                {{ student["full_name"][0] | upper }}
+            </div>
+
+            <div class="profile-header-info">
+
+                <h1>
+                    {{ student["full_name"] }}
+                </h1>
+
+                <p>
+                    🎓 {{ student["college"] or "College not added" }}
+                </p>
+
+                <span class="profile-status">
+                    ● Active Student
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT ME -->
+        <div class="public-profile-section">
+
+            <div class="section-heading">
+                <span class="section-icon">👤</span>
+
+                <h2>
+                    About Me
+                </h2>
+            </div>
+
+            <div class="about-box">
+
+                <p>
+                    {{ student["bio"] or "No bio added yet." }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKILLS -->
+        <div class="public-profile-section">
+
+            <div class="section-heading">
+                <span class="section-icon">⭐</span>
+
+                <h2>
+                    Skills
+                </h2>
+            </div>
+
+
+            {% if skills %}
+
+            <div class="public-skill-grid">
+
+                {% for skill in skills %}
+
+                <div class="public-skill-card">
+
+                    <div class="public-skill-icon">
+                        ⭐
+                    </div>
+
+                    <div class="public-skill-content">
+
+                        <h3>
+                            {{ skill["skill_name"] }}
+                        </h3>
+
+
+                        {% if skill["skill_type"] == "Can Teach" %}
+
+                        <span class="teach-badge">
+                            🎓 Can Teach
+                        </span>
+
+                        {% else %}
+
+                        <span class="learn-badge">
+                            📚 Wants to Learn
+                        </span>
+
+                        {% endif %}
+
+
+                        <p class="public-skill-level">
+                            Level:
+                            <strong>
+                                {{ skill["level"] }}
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="no-public-skills">
+
+                <div class="no-public-skills-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    No Skills Added
+                </h3>
+
+                <p>
+                    This student has not added any skills yet.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- CONNECT -->
+        <div class="connect-section">
+
+            <h2>
+                Interested in learning together?
+            </h2>
+
+            <p>
+                Connect with this student and start
+                your skill exchange journey.
+            </p>
+
+            <a
+                href="/connect/{{ student['id'] }}"
+                class="big-connect-button">
+
+                🤝 Connect With Student
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

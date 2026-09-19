@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <!-- Welcome -->
+
+    <div class="welcome-card">
+
+        <div>
+
+            <h1>
+                Welcome, {{ student['full_name'] }} 👋
+            </h1>
+
+            <p>
+                Manage your skills, connections and teams
+                from your SkillNova dashboard.
+            </p>
+
+        </div>
+
+        <div class="welcome-icon">
+            🌟
+        </div>
+
+    </div>
+
+
+    <!-- Statistics -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <div>
+                <h3>{{ skill_count }}</h3>
+                <p>My Skills</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🤝
+            </div>
+
+            <div>
+                <h3>{{ connection_count }}</h3>
+                <p>Connections</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📩
+            </div>
+
+            <div>
+                <h3>{{ pending_count }}</h3>
+                <p>Pending Requests</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div>
+                <h3>{{ team_count }}</h3>
+                <p>My Teams</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔔
+            </div>
+
+            <div>
+                <h3>{{ notification_count }}</h3>
+                <p>Notifications</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Quick Actions -->
+
+    <div class="dashboard-section">
+
+        <div class="section-title">
+
+            <h2>Quick Actions</h2>
+
+            <p>
+                Explore SkillNova
+            </p>
+
+        </div>
+
+
+        <div class="action-grid">
+
+            <a href="/skills" class="action-card">
+
+                <span>🎯</span>
+
+                <h3>My Skills</h3>
+
+                <p>
+                    Add and manage your skills.
+                </p>
+
+            </a>
+
+
+            <a href="/students" class="action-card">
+
+                <span>🔍</span>
+
+                <h3>Find Students</h3>
+
+                <p>
+                    Discover students and their skills.
+                </p>
+
+            </a>
+
+
+            <a href="/matches" class="action-card">
+
+                <span>✨</span>
+
+                <h3>Smart Matches</h3>
+
+                <p>
+                    Find students with matching skills.
+                </p>
+
+            </a>
+
+
+            <a href="/connections" class="action-card">
+
+                <span>🤝</span>
+
+                <h3>Connections</h3>
+
+                <p>
+                    Manage your connections.
+                </p>
+
+            </a>
+
+
+            <a href="/team" class="action-card">
+
+                <span>👥</span>
+
+                <h3>My Team</h3>
+
+                <p>
+                    Create and manage your team.
+                </p>
+
+            </a>
+
+
+            <a href="/notifications" class="action-card">
+
+                <span>🔔</span>
+
+                <h3>Notifications</h3>
+
+                <p>
+                    View your latest notifications.
+                </p>
+
+            </a>
+
+
+            <a href="/connections" class="action-card">
+
+                <span>💬</span>
+
+                <h3>Chat</h3>
+
+                <p>
+                    Chat with your connected students.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Recent Skills -->
+
+    <div class="dashboard-section">
+
+        <div class="section-title">
+
+            <h2>My Recent Skills</h2>
+
+            <a href="/skills">
+                View All →
+            </a>
+
+        </div>
+
+
+        {% if skills %}
+
+        <div class="skill-list">
+
+            {% for skill in skills[:5] %}
+
+            <div class="skill-item">
+
+                <div class="skill-icon">
+                    🎵
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ skill['skill_name'] }}
+                    </h3>
+
+                    <p>
+                        {{ skill['skill_type'] }}
+                        •
+                        {{ skill['level'] }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <h3>
+                No skills added yet
+            </h3>
+
+            <p>
+                Start by adding your first skill.
+            </p>
+
+            <a href="/skills" class="primary-btn">
+                Add Skill
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Profile Summary -->
+
+    <div class="dashboard-section profile-card">
+
+        <div>
+
+            <h2>My Profile</h2>
+
+            <p>
+                <strong>Name:</strong>
+                {{ student['full_name'] }}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                {{ student['email'] }}
+            </p>
+
+            <p>
+                <strong>College:</strong>
+                {{ student['college'] or 'Not added' }}
+            </p>
+
+        </div>
+
+        <a href="/profile" class="primary-btn">
+            Edit Profile
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chat - SkillNova</title>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f3ff;
+            min-height: 100vh;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ================= HEADER ================= */
+
+        .chat-header {
+            background: #4f46e5;
+            color: white;
+            padding: 20px 25px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+        }
+
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+            background: white;
+            color: #4f46e5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .chat-user-info h2 {
+            font-size: 20px;
+        }
+
+        .chat-user-info p {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* ================= MESSAGES ================= */
+
+        .messages-container {
+            flex: 1;
+            padding: 25px;
+
+            overflow-y: auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            background: #fafafa;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 16px;
+
+            word-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        .my-message {
+            align-self: flex-end;
+
+            background: #4f46e5;
+            color: white;
+
+            border-bottom-right-radius: 4px;
+        }
+
+        .other-message {
+            align-self: flex-start;
+
+            background: #e5e7eb;
+            color: #111827;
+
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-time {
+            display: block;
+
+            font-size: 10px;
+            margin-top: 5px;
+
+            opacity: 0.7;
+        }
+
+        .empty-chat {
+            margin: auto;
+
+            text-align: center;
+            color: #777;
+        }
+
+        .empty-chat-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        /* ================= INPUT ================= */
+
+        .chat-input-area {
+            padding: 16px;
+
+            background: white;
+            border-top: 1px solid #ddd;
+
+            display: flex;
+            gap: 10px;
+        }
+
+        #messageInput {
+            flex: 1;
+
+            padding: 14px 18px;
+
+            border: 1px solid #ddd;
+            border-radius: 25px;
+
+            outline: none;
+            font-size: 15px;
+        }
+
+        #messageInput:focus {
+            border-color: #4f46e5;
+        }
+
+        #sendButton {
+            border: none;
+
+            background: #4f46e5;
+            color: white;
+
+            padding: 0 25px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #sendButton:hover {
+            background: #3730a3;
+        }
+
+        #sendButton:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ================= ERROR ================= */
+
+        .error-message {
+            text-align: center;
+            padding: 15px;
+            color: #dc2626;
+            background: #fee2e2;
+            margin: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+
+            .chat-container {
+                width: 100%;
+                height: 100vh;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .message {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="chat-header">
+
+        <a href="{{ url_for('connections') }}"
+           class="back-btn">
+            ←
+        </a>
+
+        <div class="chat-avatar">
+            {{ receiver["full_name"][0] | upper }}
+        </div>
+
+        <div class="chat-user-info">
+
+            <h2>
+                {{ receiver["full_name"] }}
+            </h2>
+
+            <p>
+                SkillNova Connection
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ERROR ================= -->
+
+    <div id="errorMessage"
+         class="error-message">
+    </div>
+
+
+    <!-- ================= MESSAGES ================= -->
+
+    <div id="messagesContainer"
+         class="messages-container">
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="message
+                    {% if message['sender_id'] == current_student_id %}
+                        my-message
+                    {% else %}
+                        other-message
+                    {% endif %}"
+                >
+
+                    <span>
+                        {{ message["message"] }}
+                    </span>
+
+                    <small class="message-time">
+                        {{ message["created_at"] }}
+                    </small>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty-chat"
+                 id="emptyChat">
+
+                <div class="empty-chat-icon">
+                    💬
+                </div>
+
+                <p>
+                    No messages yet.
+                </p>
+
+                <p>
+                    Start the conversation!
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ================= INPUT ================= -->
+
+    <div class="chat-input-area">
+
+        <input
+            type="text"
+            id="messageInput"
+            placeholder="Type a message..."
+            autocomplete="off"
+        >
+
+        <button
+            id="sendButton"
+            type="button"
+        >
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =====================================================
+       GET STUDENT ID FROM URL
+       Example:
+       /chat/9
+       receiverId = 9
+       ===================================================== */
+
+    const pathParts = window.location.pathname.split("/");
+
+    const receiverId =
+        parseInt(pathParts[pathParts.length - 1]);
+
+
+    /* =====================================================
+       CURRENT USER ID
+       ===================================================== */
+
+    const currentStudentId =
+        Number("{{ current_student_id }}");
+
+
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
+
+    const messageInput =
+        document.getElementById("messageInput");
+
+    const sendButton =
+        document.getElementById("sendButton");
+
+    const messagesContainer =
+        document.getElementById("messagesContainer");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    const emptyChat =
+        document.getElementById("emptyChat");
+
+
+    /* =====================================================
+       CHECK IDs
+       ===================================================== */
+
+    if (!receiverId || Number.isNaN(receiverId)) {
+
+        showError("Invalid chat user.");
+
+    }
+
+
+    /* =====================================================
+       SHOW ERROR
+       ===================================================== */
+
+    function showError(message) {
+
+        errorMessage.textContent =
+            message || "Something went wrong.";
+
+        errorMessage.style.display = "block";
+    }
+
+
+    /* =====================================================
+       SCROLL TO BOTTOM
+       ===================================================== */
+
+    function scrollToBottom() {
+
+        messagesContainer.scrollTop =
+            messagesContainer.scrollHeight;
+    }
+
+
+    /* =====================================================
+       SOCKET CONNECTION
+       ===================================================== */
+
+    const socket = io();
+
+
+    socket.on("connect", function () {
+
+        console.log("Socket connected.");
+
+        socket.emit("join_chat", {
+            receiver_id: receiverId
+        });
+
+    });
+
+
+    socket.on("connect_error", function(error) {
+
+        console.log("Socket connection error:", error);
+
+    });
+
+
+    /* =====================================================
+       SEND MESSAGE
+       ===================================================== */
+
+    function sendMessage() {
+
+        const message =
+            messageInput.value.trim();
+
+
+        if (!message) {
+            return;
+        }
+
+
+        if (!receiverId) {
+
+            showError("Invalid receiver.");
+
+            return;
+        }
+
+
+        socket.emit("send_message", {
+
+            receiver_id: receiverId,
+
+            message: message
+
+        });
+
+
+        messageInput.value = "";
+
+        messageInput.focus();
+    }
+
+
+    /* =====================================================
+       SEND BUTTON
+       ===================================================== */
+
+    sendButton.addEventListener(
+        "click",
+        sendMessage
+    );
+
+
+    /* =====================================================
+       ENTER KEY
+       ===================================================== */
+
+    messageInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                sendMessage();
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       RECEIVE MESSAGE
+       ===================================================== */
+
+    socket.on(
+        "receive_message",
+        function(data) {
+
+            console.log(
+                "Received message:",
+                data
+            );
+
+
+            if (!data) {
+
+                console.log(
+                    "Received empty message data."
+                );
+
+                return;
+            }
+
+
+            addMessage(data);
+
+        }
+    );
+
+
+    /* =====================================================
+       ADD MESSAGE TO SCREEN
+       ===================================================== */
+
+    function addMessage(data) {
+
+        if (!data.message) {
+
+            console.log(
+                "Message text is missing:",
+                data
+            );
+
+            return;
+        }
+
+
+        /* Remove "No messages yet" */
+
+        if (emptyChat) {
+
+            emptyChat.remove();
+
+        }
+
+
+        const messageDiv =
+            document.createElement("div");
+
+
+        messageDiv.classList.add(
+            "message"
+        );
+
+
+        if (
+            Number(data.sender_id) ===
+            Number(currentStudentId)
+        ) {
+
+            messageDiv.classList.add(
+                "my-message"
+            );
+
+        } else {
+
+            messageDiv.classList.add(
+                "other-message"
+            );
+
+        }
+
+
+        const messageText =
+            document.createElement("span");
+
+        messageText.textContent =
+            data.message;
+
+
+        const time =
+            document.createElement("small");
+
+        time.classList.add(
+            "message-time"
+        );
+
+
+        time.textContent =
+            data.created_at || "Now";
+
+
+        messageDiv.appendChild(
+            messageText
+        );
+
+        messageDiv.appendChild(
+            time
+        );
+
+
+        messagesContainer.appendChild(
+            messageDiv
+        );
+
+
+        scrollToBottom();
+    }
+
+
+    /* =====================================================
+       LOAD EXISTING MESSAGES
+       ===================================================== */
+
+    async function loadMessages() {
+
+        try {
+
+            const response =
+                await fetch(
+                    `/chat_data/${receiverId}`
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                showError(
+                    data.error ||
+                    "Unable to load messages."
+                );
+
+                return;
+            }
+
+
+            /* Do not duplicate messages
+               already rendered by Flask */
+
+            if (
+                !data ||
+                !Array.isArray(data)
+            ) {
+
+                return;
+            }
+
+
+            console.log(
+                "Messages loaded:",
+                data.length
+            );
+
+        }
+
+        catch (error) {
+
+            console.log(
+                "Chat data error:",
+                error
+            );
+
+            showError(
+                "Unable to connect to chat."
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       INITIALIZE
+       ===================================================== */
+
+    scrollToBottom();
+
+    loadMessages();
+
+    messageInput.focus();
+
+</script>
+
+</body>
+</html>

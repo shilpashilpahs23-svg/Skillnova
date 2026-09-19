@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>🔔 Notifications</h2>
+
+    {% if notifications %}
+
+        {% for notification in notifications %}
+
+        <div class="notification-card
+                    {% if notification['is_read'] == 0 %}
+                    unread
+                    {% endif %}">
+
+            <p>{{ notification['message'] }}</p>
+
+            {% if notification['is_read'] == 0 %}
+                <span>New</span>
+            {% else %}
+                <small>Read</small>
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+        <a href="/read_notifications" class="btn">
+            Mark All as Read
+        </a>
+
+    {% else %}
+
+        <p>No notifications yet.</p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

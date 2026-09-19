@@ -1,0 +1,5233 @@
+
+/* =========================================================
+   SKILLNOVA - MAIN STYLE SHEET
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET & GENERAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f3ff;
+    color: #222;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   2. COMMON CONTAINER
+   ========================================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   3. COMMON BUTTONS
+   ========================================================= */
+
+.primary-btn,
+.dashboard-btn {
+    display: inline-block;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.primary-btn:hover,
+.dashboard-btn:hover {
+    background: #3730a3;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   4. NAVBAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 70px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* Logo */
+
+.logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #333333;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #4f46e5;
+}
+
+
+/* Logout */
+
+.logout-link {
+    padding: 9px 16px;
+
+    background: #4f46e5;
+    color: #ffffff !important;
+
+    border-radius: 8px;
+}
+
+.logout-link:hover {
+    background: #3730a3;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+
+    padding: 35px 45px;
+}
+
+
+/* =========================================================
+   6. HOME PAGE
+   ========================================================= */
+
+
+/* ---------- Home Navbar ---------- */
+
+.home-navbar {
+    width: 100%;
+    min-height: 72px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.home-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.home-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.home-nav-links a {
+    color: #333333;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.home-nav-links a:hover {
+    color: #4f46e5;
+}
+
+.nav-register {
+    background: #4f46e5;
+    color: #ffffff !important;
+
+    padding: 10px 20px;
+
+    border-radius: 9px;
+}
+
+.nav-register:hover {
+    background: #3730a3;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero-section {
+    min-height: 600px;
+
+    padding: 80px 8%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    background: linear-gradient(
+        135deg,
+        #f5f3ff,
+        #eef2ff
+    );
+}
+
+.hero-content {
+    max-width: 620px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    background: #ffffff;
+    color: #4f46e5;
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    margin-bottom: 22px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    line-height: 1.1;
+
+    color: #211b55;
+
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    color: #4f46e5;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #666666;
+
+    max-width: 580px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ---------- Hero Buttons ---------- */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-btn {
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.hero-btn.primary {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+.hero-btn.primary:hover {
+    background: #3730a3;
+    transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+    background: #ffffff;
+    color: #4f46e5;
+
+    border: 1px solid #dddddd;
+}
+
+.hero-btn.secondary:hover {
+    border-color: #4f46e5;
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Hero Visual ---------- */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-visual {
+    width: 320px;
+    min-height: 280px;
+
+    background: #ffffff;
+
+    border-radius: 25px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(79, 70, 229, 0.15);
+
+    z-index: 2;
+}
+
+.visual-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+
+    background: #ede9fe;
+}
+
+.main-visual h2 {
+    color: #25215c;
+    margin-bottom: 10px;
+}
+
+.main-visual p {
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ---------- Floating Cards ---------- */
+
+.floating-card {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: #ffffff;
+
+    padding: 15px 20px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    z-index: 3;
+}
+
+.card-one {
+    top: 55px;
+    left: 0;
+}
+
+.card-two {
+    bottom: 50px;
+    right: 0;
+}
+
+.card-icon {
+    font-size: 27px;
+}
+
+.floating-card strong {
+    display: block;
+    color: #25215c;
+}
+
+.floating-card small {
+    color: #777777;
+    font-size: 11px;
+}
+
+
+/* ---------- Home Features ---------- */
+
+.why-section {
+    padding: 80px 8%;
+    background: #ffffff;
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 0 auto 45px;
+}
+
+.section-heading > span {
+    color: #4f46e5;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #25215c;
+
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: #777777;
+    font-size: 16px;
+}
+
+.feature-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 30px 24px;
+
+    border-radius: 18px;
+
+    border: 1px solid #eeeeee;
+
+    background: #fafaff;
+
+    transition: 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    border-color: #d8d5ff;
+}
+
+.feature-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    color: #25215c;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #777777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ---------- Skills Showcase ---------- */
+
+.skills-showcase {
+    padding: 80px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    background: #f5f3ff;
+}
+
+.skills-text {
+    max-width: 550px;
+}
+
+.skills-text > span {
+    color: #4f46e5;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.skills-text h2 {
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    color: #25215c;
+
+    margin: 15px 0;
+}
+
+.skills-text p {
+    color: #666666;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}
+
+
+/* ---------- Skill Pills ---------- */
+
+.skills-box {
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.skill-pill {
+    padding: 14px 20px;
+
+    border-radius: 30px;
+
+    background: #f5f3ff;
+
+    color: #25215c;
+
+    font-weight: bold;
+
+    border: 1px solid #e5e1ff;
+
+    transition: 0.2s ease;
+}
+
+.skill-pill:hover {
+    background: #4f46e5;
+    color: #ffffff;
+
+    transform: scale(1.04);
+}
+
+
+/* ---------- Home CTA ---------- */
+
+.cta-section {
+    padding: 75px 20px;
+
+    text-align: center;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+
+    margin-bottom: 12px;
+}
+
+.cta-section p {
+    font-size: 16px;
+
+    opacity: 0.9;
+
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+
+    background: #ffffff;
+
+    color: #4f46e5;
+
+    padding: 13px 25px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- Home Footer ---------- */
+
+.home-footer {
+    padding: 30px 8%;
+
+    background: #17143d;
+
+    color: #ffffff;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.home-footer strong {
+    font-size: 20px;
+}
+
+.home-footer p {
+    color: #bbbbbb;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   7. DASHBOARD PAGE
+   ========================================================= */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* ---------- Welcome ---------- */
+
+.welcome-section {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.welcome-section h1 {
+    font-size: 34px;
+
+    color: #25215c;
+
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    color: #666666;
+
+    font-size: 16px;
+}
+
+
+/* ---------- Statistics ---------- */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    background: #ffffff;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat-card h3 {
+    font-size: 25px;
+
+    color: #4f46e5;
+}
+
+.stat-card p {
+    color: #777777;
+
+    font-size: 13px;
+}
+
+
+/* ---------- Dashboard Section ---------- */
+
+.dashboard-section {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    margin-bottom: 30px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    color: #25215c;
+}
+
+.section-header a {
+    color: #4f46e5;
+
+    font-weight: bold;
+}
+
+.section-header a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- Quick Actions ---------- */
+
+.action-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.action-card {
+    display: block;
+
+    padding: 25px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 15px;
+
+    background: #fafaff;
+
+    transition: 0.2s ease;
+
+    color: #222222;
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    border-color: #d8d5ff;
+}
+
+.action-card span {
+    font-size: 32px;
+}
+
+.action-card h3 {
+    margin-top: 12px;
+    margin-bottom: 7px;
+
+    color: #25215c;
+}
+
+.action-card p {
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* ---------- Skills ---------- */
+
+.skill-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.skill-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+
+    background: #fafaff;
+}
+
+.skill-icon {
+    font-size: 25px;
+}
+
+.skill-item h3 {
+    color: #333333;
+}
+
+.skill-item p {
+    color: #777777;
+
+    margin-top: 5px;
+}
+
+
+/* ---------- Empty State ---------- */
+
+.empty-state {
+    text-align: center;
+
+    padding: 35px;
+}
+
+.empty-state h3 {
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #777777;
+}
+
+
+/* ---------- Profile Summary ---------- */
+
+.profile-summary h2 {
+    color: #25215c;
+
+    margin-bottom: 15px;
+}
+
+.profile-summary p {
+    margin-top: 8px;
+
+    color: #555555;
+}
+
+
+/* =========================================================
+   8. FORM PAGES
+   ========================================================= */
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.form-container h1,
+.form-container h2 {
+    color: #25215c;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #333333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.08);
+}
+
+
+/* =========================================================
+   9. LOGIN / REGISTER
+   ========================================================= */
+
+.auth-page {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container h1 {
+    text-align: center;
+
+    color: #25215c;
+
+    margin-bottom: 10px;
+}
+
+.auth-container > p {
+    text-align: center;
+
+    color: #777777;
+
+    margin-bottom: 25px;
+}
+
+.auth-footer {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: #4f46e5;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   10. CHAT PAGE
+   ========================================================= */
+
+.chat-container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 20px auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* ---------- Chat Header ---------- */
+
+.chat-header {
+    padding: 20px 25px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.chat-header h2 {
+    font-size: 22px;
+}
+
+
+/* ---------- Messages ---------- */
+
+.chat-messages {
+    height: 450px;
+
+    padding: 25px;
+
+    overflow-y: auto;
+
+    background: #f8f7ff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.message {
+    max-width: 70%;
+
+    padding: 11px 15px;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+
+    word-wrap: break-word;
+}
+
+.my-message {
+    align-self: flex-end;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    border-bottom-right-radius: 4px;
+}
+
+.other-message {
+    align-self: flex-start;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    border: 1px solid #e5e5e5;
+
+    border-bottom-left-radius: 4px;
+}
+
+
+/* ---------- Chat Input ---------- */
+
+.chat-input {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 18px;
+
+    border-top: 1px solid #eeeeee;
+
+    background: #ffffff;
+}
+
+.chat-input input {
+    flex: 1;
+
+    padding: 12px 15px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+.chat-input input:focus {
+    border-color: #4f46e5;
+}
+
+.chat-input button {
+    padding: 12px 22px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+.chat-input button:hover {
+    background: #3730a3;
+}
+
+
+/* =========================================================
+   11. NOTIFICATIONS
+   ========================================================= */
+
+.notification-card {
+    background: #ffffff;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid #eeeeee;
+
+    margin-bottom: 12px;
+}
+
+.notification-card.unread {
+    border-left: 4px solid #4f46e5;
+
+    background: #f8f7ff;
+}
+
+.notification-card span {
+    color: #777777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   12. SEARCH / SKILL MATCHING
+   ========================================================= */
+
+.search-container {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.search-box {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 13px 15px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+}
+
+.search-box input:focus {
+    border-color: #4f46e5;
+}
+
+.search-box button {
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-weight: bold;
+}
+
+.search-box button:hover {
+    background: #3730a3;
+}
+
+
+/* ---------- User / Skill Cards ---------- */
+
+.user-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.user-card {
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.user-card h3 {
+    color: #25215c;
+
+    margin-bottom: 8px;
+}
+
+.user-card p {
+    color: #777777;
+
+    font-size: 14px;
+}
+
+.user-skill {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #ede9fe;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   13. PROFILE PAGE
+   ========================================================= */
+
+.profile-container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.profile-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: #ede9fe;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.profile-header h1 {
+    color: #25215c;
+}
+
+.profile-header p {
+    color: #777777;
+}
+
+
+/* =========================================================
+   14. ALERT / FLASH MESSAGES
+   ========================================================= */
+
+.alert {
+    width: 100%;
+
+    padding: 12px 16px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+}
+
+.alert-success {
+    background: #ecfdf5;
+
+    color: #065f46;
+
+    border: 1px solid #a7f3d0;
+}
+
+.alert-error {
+    background: #fef2f2;
+
+    color: #991b1b;
+
+    border: 1px solid #fecaca;
+}
+
+.alert-info {
+    background: #eff6ff;
+
+    color: #1e40af;
+
+    border: 1px solid #bfdbfe;
+}
+
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+
+.footer {
+    width: 100%;
+
+    background: #17143d;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    margin-top: 40px;
+}
+
+.footer p {
+    color: #bbbbbb;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    /* Dashboard */
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Home */
+
+    .hero-section {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-showcase {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .skills-text {
+        margin: 0 auto;
+    }
+
+    /* Search */
+
+    .user-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Navbar */
+
+    .navbar {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    /* Home Navbar */
+
+    .home-navbar {
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .home-nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    /* Main */
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    /* Home Hero */
+
+    .hero-section {
+        padding: 60px 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .hero-btn {
+        width: 180px;
+
+        text-align: center;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+
+        transform: scale(0.85);
+    }
+
+    /* Features */
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    /* Dashboard */
+
+    .welcome-section h1 {
+        font-size: 27px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-section {
+        padding: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+    /* Search */
+
+    .user-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    /* Chat */
+
+    .chat-container {
+        margin: 10px;
+    }
+
+    .chat-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .chat-messages {
+        height: 400px;
+    }
+
+    .chat-input {
+        padding: 12px;
+    }
+
+    .chat-input button {
+        padding: 10px 15px;
+    }
+
+    /* Profile */
+
+    .profile-header {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    /* Form */
+
+    .form-container {
+        padding: 25px 20px;
+    }
+}
+
+
+/* =========================================================
+   18. RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    .home-logo {
+        font-size: 24px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-visual {
+        transform: scale(0.72);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-section {
+        padding: 18px;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+    }
+
+    .auth-container {
+        padding: 25px 18px;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .skills-box {
+        padding: 20px;
+    }
+
+    .skills-text h2 {
+        font-size: 32px;
+    }
+
+    .cta-section h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =========================================================
+   19. COMMON PAGE DESIGN
+   Used for My Skills, Profile, Search, Notifications, etc.
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE CONTAINER
+   ========================================================= */
+
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.page-header h1 {
+    color: #25215c;
+
+    font-size: 32px;
+
+    margin-bottom: 7px;
+}
+
+.page-header p {
+    color: #777777;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   COMMON CONTENT CARD
+   ========================================================= */
+
+.content-card {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   COMMON CARD HEADER
+   ========================================================= */
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.card-header h2 {
+    color: #25215c;
+
+    font-size: 21px;
+}
+
+.card-header p {
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MY SKILLS PAGE
+   ========================================================= */
+
+.myskills-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+/* My Skills Header */
+
+.myskills-header {
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.20);
+}
+
+.myskills-header h1 {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.myskills-header p {
+    font-size: 15px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   SKILL FORM
+   ========================================================= */
+
+.skill-form {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skill-form h2 {
+    color: #25215c;
+
+    font-size: 21px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Form Row */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* Form Group */
+
+.skill-form .form-group {
+    margin-bottom: 18px;
+}
+
+.skill-form label {
+    display: block;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.skill-form input,
+.skill-form textarea,
+.skill-form select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.skill-form input:focus,
+.skill-form textarea:focus,
+.skill-form select:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+.skill-form textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   SKILL BUTTON
+   ========================================================= */
+
+.skill-submit {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.skill-submit:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SKILL CARDS
+   ========================================================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Individual Skill */
+
+.my-skill-card {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.04);
+
+    transition: 0.25s ease;
+}
+
+.my-skill-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+
+    border-color: #d8d5ff;
+}
+
+
+/* Skill Icon */
+
+.my-skill-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ede9fe;
+
+    border-radius: 14px;
+
+    font-size: 27px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Skill Name */
+
+.my-skill-card h3 {
+    color: #25215c;
+
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+
+/* Skill Description */
+
+.my-skill-card p {
+    color: #777777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+
+/* Skill Type */
+
+.skill-type {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #f5f3ff;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   SKILL CARD ACTIONS
+   ========================================================= */
+
+.skill-actions {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.skill-edit {
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    background: #ede9fe;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.skill-delete {
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   EMPTY SKILLS
+   ========================================================= */
+
+.skills-empty {
+    background: #ffffff;
+
+    padding: 50px 25px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    border: 1px dashed #d5d5d5;
+}
+
+.skills-empty-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.skills-empty h3 {
+    color: #25215c;
+
+    margin-bottom: 7px;
+}
+
+.skills-empty p {
+    color: #777777;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   COMMON TABLE
+   ========================================================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+}
+
+.common-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.common-table th {
+    text-align: left;
+
+    padding: 15px;
+
+    background: #f5f3ff;
+
+    color: #25215c;
+
+    font-size: 14px;
+}
+
+.common-table td {
+    padding: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #555555;
+
+    font-size: 14px;
+}
+
+.common-table tr:hover {
+    background: #fafaff;
+}
+
+
+/* =========================================================
+   COMMON SEARCH
+   ========================================================= */
+
+.common-search {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.common-search input {
+    flex: 1;
+
+    padding: 12px 15px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+}
+
+.common-search input:focus {
+    border-color: #4f46e5;
+}
+
+.common-search button {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   COMMON PROFILE
+   ========================================================= */
+
+.profile-page {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   COMMON RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .skills-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        padding: 25px 20px;
+    }
+
+    .page-header h1 {
+        font-size: 27px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .myskills-header {
+        padding: 25px 20px;
+    }
+
+    .myskills-header h1 {
+        font-size: 27px;
+    }
+
+    .skill-form {
+        padding: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .common-search {
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .skill-actions {
+        flex-direction: column;
+    }
+
+    .skill-edit,
+    .skill-delete {
+        text-align: center;
+    }
+
+}
+
+/* =========================================================
+   MY SKILLS PAGE - MODERN CARD DESIGN
+   ========================================================= */
+
+.skills-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 25px 60px;
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.skills-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.skills-title h1 {
+    font-size: 34px;
+    color: #25215c;
+    margin-bottom: 10px;
+}
+
+.skills-title p {
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* ---------- ADD SKILL CARD ---------- */
+
+.add-skill-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 40px;
+
+    border: 1px solid #e8e5ff;
+
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.08);
+}
+
+.add-skill-card h2 {
+    color: #25215c;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.form-description {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+
+/* ---------- FORM ---------- */
+
+.skill-form-group {
+    margin-bottom: 22px;
+}
+
+.skill-form-group > label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.skill-form-group input[type="text"],
+.skill-form-group select {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 15px;
+    outline: none;
+
+    background: #fafaff;
+    transition: 0.3s;
+}
+
+.skill-form-group input[type="text"]:focus,
+.skill-form-group select:focus {
+    border-color: #4f46e5;
+    background: #fff;
+
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+
+/* ---------- SKILL TYPE ---------- */
+
+.skill-type-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.type-option {
+    flex: 1;
+    min-width: 200px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 15px 18px;
+
+    border: 1px solid #e2e0f5;
+    border-radius: 12px;
+
+    background: #fafaff;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.type-option:hover {
+    border-color: #4f46e5;
+    background: #f5f3ff;
+}
+
+.type-option input {
+    accent-color: #4f46e5;
+}
+
+.type-option span {
+    font-weight: 600;
+    color: #444;
+}
+
+
+/* ---------- ADD BUTTON ---------- */
+
+.add-skill-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #4f46e5;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.add-skill-button:hover {
+    background: #3730a3;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MY ADDED SKILLS
+   ========================================================= */
+
+.my-skills-section {
+    background: #ffffff;
+
+    padding: 30px;
+    margin-bottom: 35px;
+
+    border-radius: 18px;
+    border: 1px solid #e8e5ff;
+
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.07);
+}
+
+
+/* ---------- SECTION HEADING ---------- */
+
+.skills-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.skills-section-heading h2 {
+    color: #25215c;
+    font-size: 24px;
+}
+
+.skills-section-heading span {
+    background: #f0eeff;
+    color: #4f46e5;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ---------- SKILLS GRID ---------- */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+
+/* ---------- SKILL CARD ---------- */
+
+.skill-card {
+    background: #fafaff;
+
+    border: 1px solid #e5e2f7;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    min-height: 210px;
+
+    transition: 0.3s;
+
+    position: relative;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #c9c5ff;
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.12);
+}
+
+
+/* ---------- CARD TOP ---------- */
+
+.skill-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------- ICON ---------- */
+
+.skill-card-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eeff;
+
+    border-radius: 14px;
+
+    font-size: 28px;
+}
+
+
+/* ---------- DELETE BUTTON ---------- */
+
+.delete-skill-form {
+    margin: 0;
+}
+
+.delete-skill {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #fff0f0;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.delete-skill:hover {
+    background: #ffe0e0;
+    transform: scale(1.05);
+}
+
+
+/* ---------- SKILL NAME ---------- */
+
+.skill-card h3 {
+    font-size: 21px;
+
+    color: #25215c;
+
+    margin-bottom: 12px;
+
+    text-transform: capitalize;
+}
+
+
+/* ---------- BADGES ---------- */
+
+.teach-badge,
+.learn-badge {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.teach-badge {
+    background: #e9f9ef;
+    color: #18864b;
+}
+
+.learn-badge {
+    background: #eeeaff;
+    color: #5b4bc4;
+}
+
+
+/* ---------- LEVEL ---------- */
+
+.skill-level-text {
+    margin-top: 18px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.skill-level-text strong {
+    color: #333;
+}
+
+
+/* =========================================================
+   NO SKILLS
+   ========================================================= */
+
+.no-skills-message {
+    text-align: center;
+
+    padding: 55px 20px;
+
+    border: 2px dashed #ddd9f5;
+
+    border-radius: 15px;
+
+    background: #fafaff;
+}
+
+.no-skill-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.no-skills-message h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.no-skills-message p {
+    color: #777;
+}
+
+
+/* =========================================================
+   MATCHING INFORMATION CARD
+   ========================================================= */
+
+.skill-info-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #f5f3ff,
+        #ffffff
+    );
+
+    border: 1px solid #ddd8ff;
+
+    border-radius: 18px;
+
+    padding: 25px 30px;
+
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.06);
+}
+
+.info-icon {
+    min-width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #4f46e5;
+    color: white;
+
+    border-radius: 15px;
+
+    font-size: 28px;
+}
+
+.skill-info-box h2 {
+    color: #25215c;
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.skill-info-box p {
+    color: #777;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .skills-page {
+        padding: 25px 15px 40px;
+    }
+
+    .skills-title h1 {
+        font-size: 28px;
+    }
+
+    .add-skill-card,
+    .my-skills-section {
+        padding: 22px;
+    }
+
+    .skills-section-heading {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .skill-type-options {
+        flex-direction: column;
+    }
+
+    .type-option {
+        min-width: 100%;
+    }
+
+    .skill-info-box {
+        align-items: flex-start;
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   PUBLIC STUDENT PROFILE PAGE
+   ========================================================= */
+
+.public-profile-page {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    padding: 10px 16px;
+
+    background: #ffffff;
+
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e2f7;
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: #f5f3ff;
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   MAIN PROFILE CARD
+   ========================================================= */
+
+.public-profile-card {
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    border: 1px solid #e8e5ff;
+
+    box-shadow:
+        0 10px 35px rgba(79, 70, 229, 0.09);
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+   ========================================================= */
+
+.public-profile-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    background: #f7f5ff;
+
+    border-radius: 18px;
+
+    border: 1px solid #ebe8ff;
+
+    margin-bottom: 35px;
+}
+
+
+.large-student-avatar {
+    width: 95px;
+    height: 95px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.20);
+}
+
+
+.profile-header-info h1 {
+    color: #25215c;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.profile-header-info p {
+    color: #666;
+
+    margin-bottom: 12px;
+
+    font-size: 15px;
+}
+
+
+.profile-status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #e9f9ef;
+
+    color: #18864b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PROFILE SECTIONS
+   ========================================================= */
+
+.public-profile-section {
+    margin-bottom: 35px;
+}
+
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+.section-heading h2 {
+    color: #25215c;
+
+    font-size: 22px;
+}
+
+
+.section-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eeff;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   ABOUT BOX
+   ========================================================= */
+
+.about-box {
+    padding: 20px;
+
+    background: #fafaff;
+
+    border: 1px solid #e8e5f7;
+
+    border-radius: 14px;
+}
+
+
+.about-box p {
+    color: #666;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PUBLIC SKILLS GRID
+   ========================================================= */
+
+.public-skill-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   PUBLIC SKILL CARD
+   ========================================================= */
+
+.public-skill-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #fafaff;
+
+    border: 1px solid #e5e2f7;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+
+.public-skill-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #c9c5ff;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.10);
+}
+
+
+/* =========================================================
+   SKILL ICON
+   ========================================================= */
+
+.public-skill-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eeff;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+
+.public-skill-content h3 {
+    color: #25215c;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+    text-transform: capitalize;
+}
+
+
+/* =========================================================
+   SKILL BADGES
+   ========================================================= */
+
+.public-skill-card .teach-badge,
+.public-skill-card .learn-badge {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.public-skill-card .teach-badge {
+    background: #e9f9ef;
+
+    color: #18864b;
+}
+
+
+.public-skill-card .learn-badge {
+    background: #eeeaff;
+
+    color: #5b4bc4;
+}
+
+
+/* =========================================================
+   SKILL LEVEL
+   ========================================================= */
+
+.public-skill-level {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+.public-skill-level strong {
+    color: #333;
+}
+
+
+/* =========================================================
+   NO SKILLS
+   ========================================================= */
+
+.no-public-skills {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background: #fafaff;
+
+    border: 2px dashed #ddd9f5;
+
+    border-radius: 15px;
+}
+
+
+.no-public-skills-icon {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.no-public-skills h3 {
+    color: #333;
+
+    margin-bottom: 7px;
+}
+
+
+.no-public-skills p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONNECT SECTION
+   ========================================================= */
+
+.connect-section {
+    text-align: center;
+
+    margin-top: 10px;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #f5f3ff,
+        #ffffff
+    );
+
+    border: 1px solid #ddd8ff;
+
+    border-radius: 18px;
+}
+
+
+.connect-section h2 {
+    color: #25215c;
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+
+.connect-section p {
+    color: #777;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONNECT BUTTON
+   ========================================================= */
+
+.big-connect-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 25px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.big-connect-button:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.20);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .public-profile-page {
+        padding: 25px 15px 40px;
+    }
+
+    .public-profile-card {
+        padding: 20px;
+    }
+
+    .public-profile-header {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 25px 15px;
+    }
+
+    .profile-header-info h1 {
+        font-size: 25px;
+    }
+
+    .public-skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .connect-section {
+        padding: 25px 15px;
+    }
+
+    .big-connect-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   FIND STUDENTS PAGE
+   ========================================================= */
+
+.students-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 25px 60px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.students-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.students-heading h1 {
+    font-size: 34px;
+    color: #25215c;
+    margin-bottom: 10px;
+}
+
+.students-heading p {
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   SEARCH CARD
+   ========================================================= */
+
+.student-search-card {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e8e5ff;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.08);
+
+    margin-bottom: 35px;
+}
+
+
+/* Search title */
+
+.search-card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.search-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0eeff;
+
+    border-radius: 13px;
+
+    font-size: 23px;
+}
+
+.search-card-title h2 {
+    color: #25215c;
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.search-card-title p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+
+.student-search-box {
+    display: flex;
+
+    gap: 12px;
+}
+
+.student-search-box input {
+    flex: 1;
+
+    padding: 14px 16px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: #fafaff;
+
+    transition: 0.3s;
+}
+
+.student-search-box input:focus {
+    border-color: #4f46e5;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+.student-search-box button {
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.student-search-box button:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESULT TITLE
+   ========================================================= */
+
+.search-result-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.search-result-title h2 {
+    color: #25215c;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+}
+
+.search-result-title p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* Clear button */
+
+.clear-search-button {
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    background: #f5f3ff;
+
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    border: 1px solid #e2defd;
+
+    transition: 0.3s;
+}
+
+.clear-search-button:hover {
+    background: #4f46e5;
+
+    color: white;
+}
+
+
+/* =========================================================
+   STUDENTS GRID
+   ========================================================= */
+
+.students-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   STUDENT CARD
+   ========================================================= */
+
+.student-profile-card {
+    background: #ffffff;
+
+    padding: 28px 24px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e8e5ff;
+
+    box-shadow:
+        0 7px 22px rgba(79, 70, 229, 0.07);
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.student-profile-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #c9c5ff;
+
+    box-shadow:
+        0 12px 28px rgba(79, 70, 229, 0.13);
+}
+
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.student-avatar {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 16px;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.20);
+}
+
+
+/* =========================================================
+   STUDENT INFORMATION
+   ========================================================= */
+
+.student-profile-card h2 {
+    color: #25215c;
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.student-college {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+.student-bio {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   ACTIVE STATUS
+   ========================================================= */
+
+.student-active-status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #e9f9ef;
+
+    color: #18864b;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   CARD BUTTONS
+   ========================================================= */
+
+.student-card-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.view-profile-button,
+.connect-button {
+    flex: 1;
+
+    padding: 11px 10px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+
+/* View profile */
+
+.view-profile-button {
+    background: #f0eeff;
+
+    color: #4f46e5;
+
+    border: 1px solid #ded9ff;
+}
+
+.view-profile-button:hover {
+    background: #e5e1ff;
+}
+
+
+/* Connect */
+
+.connect-button {
+    background: #4f46e5;
+
+    color: white;
+}
+
+.connect-button:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NO STUDENTS
+   ========================================================= */
+
+.no-students {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border: 1px solid #e8e5ff;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.07);
+}
+
+.no-students-icon {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+.no-students h2 {
+    color: #25215c;
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+.no-students p {
+    color: #777;
+
+    margin-bottom: 20px;
+}
+
+
+/* View all */
+
+.view-all-students {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.view-all-students:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .students-page {
+        padding: 25px 15px 40px;
+    }
+
+    .students-heading h1 {
+        font-size: 28px;
+    }
+
+    .student-search-card {
+        padding: 22px;
+    }
+
+    .student-search-box {
+        flex-direction: column;
+    }
+
+    .student-search-box button {
+        width: 100%;
+    }
+
+    .search-result-title {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+    .students-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .student-card-buttons {
+        flex-direction: column;
+    }
+
+    .view-profile-button,
+    .connect-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   MY PROFILE PAGE - CARD DESIGN
+   ========================================================= */
+
+.profile-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 25px 60px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.profile-heading h1 {
+    color: #25215c;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.profile-heading p {
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MAIN PROFILE CARD
+   ========================================================= */
+
+.profile-container {
+    background: #ffffff;
+    border: 1px solid #e8e5ff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 8px 28px rgba(79, 70, 229, 0.08);
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+   ========================================================= */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 25px;
+
+    background: #f7f5ff;
+    border: 1px solid #ebe8ff;
+    border-radius: 17px;
+
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 85px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.20);
+}
+
+.profile-header-info h2 {
+    color: #25215c;
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.profile-header-info p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.profile-status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #e9f9ef;
+    color: #18864b;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.profile-form-card {
+    background: #fafaff;
+
+    border: 1px solid #e8e5f7;
+
+    border-radius: 16px;
+
+    padding: 25px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.profile-section-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 25px;
+}
+
+.profile-section-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeaff;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+}
+
+.profile-section-title h2 {
+    color: #25215c;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.profile-section-title p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PROFILE FORM
+   ========================================================= */
+
+.profile-form {
+    display: grid;
+    gap: 20px;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-field label {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.profile-field input,
+.profile-field textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+
+    font-family: inherit;
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+.profile-field input[readonly] {
+    background: #f1f1f5;
+    cursor: not-allowed;
+}
+
+.profile-field small {
+    color: #888;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+   ========================================================= */
+
+.save-profile-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.save-profile-button:hover {
+    background: #3730a3;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.18);
+}
+
+
+/* =========================================================
+   SKILLS CARD
+   ========================================================= */
+
+.profile-skills {
+    background: #ffffff;
+
+    border: 1px solid #e8e5ff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.07);
+}
+
+
+/* =========================================================
+   SKILLS HEADING
+   ========================================================= */
+
+.skills-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.skills-heading h2 {
+    color: #25215c;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.skills-heading p {
+    color: #777;
+    font-size: 13px;
+}
+
+.add-profile-skill-button {
+    padding: 10px 16px;
+
+    background: #f0eeff;
+
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    border: 1px solid #ddd8ff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.add-profile-skill-button:hover {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SKILL LIST
+   ========================================================= */
+
+.profile-skill-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   SKILL CARD
+   ========================================================= */
+
+.profile-skill-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background: #fafaff;
+
+    border: 1px solid #e5e2f7;
+
+    border-radius: 14px;
+
+    transition: 0.3s;
+}
+
+.profile-skill-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #c9c5ff;
+
+    box-shadow:
+        0 7px 18px rgba(79, 70, 229, 0.09);
+}
+
+
+/* =========================================================
+   SKILL ICON
+   ========================================================= */
+
+.profile-skill-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeaff;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   SKILL INFORMATION
+   ========================================================= */
+
+.profile-skill-info {
+    flex: 1;
+}
+
+.profile-skill-info h3 {
+    color: #25215c;
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+
+    text-transform: capitalize;
+}
+
+.profile-skill-info p {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SKILL LEVEL
+   ========================================================= */
+
+.profile-skill-level {
+    padding: 6px 10px;
+
+    background: #eeeaff;
+
+    color: #5b4bc4;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   NO SKILLS
+   ========================================================= */
+
+.no-skills {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    background: #fafaff;
+
+    border: 2px dashed #ddd9f5;
+
+    border-radius: 15px;
+}
+
+.no-skills-icon {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.no-skills h3 {
+    color: #333;
+
+    margin-bottom: 7px;
+}
+
+.no-skills p {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.no-skills a {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.no-skills a:hover {
+    background: #3730a3;
+}
+
+
+/* =========================================================
+   DANGER ZONE
+   ========================================================= */
+
+.danger-zone {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    background: #fff8f8;
+
+    border: 1px solid #ffd6d6;
+
+    border-radius: 18px;
+}
+
+.danger-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffe8e8;
+
+    border-radius: 12px;
+
+    font-size: 23px;
+}
+
+.danger-content h2 {
+    color: #a83232;
+
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+.danger-content p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   DELETE PROFILE BUTTON
+   ========================================================= */
+
+.delete-profile-button {
+    padding: 10px 17px;
+
+    background: #dc3545;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.delete-profile-button:hover {
+    background: #b02a37;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .profile-page {
+        padding: 25px 15px 40px;
+    }
+
+    .profile-container,
+    .profile-skills {
+        padding: 20px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .profile-heading h1 {
+        font-size: 28px;
+    }
+
+    .skills-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .add-profile-skill-button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .profile-skill-list {
+        grid-template-columns: 1fr;
+    }
+
+    .danger-zone {
+        flex-direction: column;
+    }
+
+    .delete-profile-button {
+        width: 100%;
+    }
+}
+/* =========================================================
+   19. MY MATCHES PAGE
+   ========================================================= */
+
+.matches-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+/* Page Heading */
+
+.matches-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.matches-heading h1 {
+    color: #25215c;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.matches-heading p {
+    color: #777777;
+    font-size: 16px;
+}
+
+
+/* Main Matches Container */
+
+.matches-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    border: 1px solid #e5e1ff;
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.08);
+}
+
+
+/* Matches Grid */
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* Match Card */
+
+.match-card {
+    background: #ffffff;
+    border: 1px solid #e5e1ff;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(79, 70, 229, 0.08);
+    transition: 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15);
+}
+
+
+/* Match Score */
+
+.match-score {
+    display: inline-block;
+    background: #f5f3ff;
+    color: #4f46e5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+
+/* Avatar */
+
+.match-avatar {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* Name */
+
+.match-card h2 {
+    color: #25215c;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+
+/* College */
+
+.match-college {
+    color: #777777;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+/* Match Sections */
+
+.match-section {
+    text-align: left;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.match-section strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.match-section p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+}
+
+
+/* Teach Match */
+
+.teach-match {
+    background: #f5f3ff;
+    border-left: 4px solid #4f46e5;
+}
+
+.teach-match strong {
+    color: #4f46e5;
+}
+
+
+/* Learn Match */
+
+.learn-match {
+    background: #f8f5ff;
+    border-left: 4px solid #7c3aed;
+}
+
+.learn-match strong {
+    color: #7c3aed;
+}
+
+
+/* Buttons */
+
+.match-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.match-buttons a {
+    flex: 1;
+    text-decoration: none;
+    text-align: center;
+    padding: 11px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+
+/* View Profile */
+
+.match-buttons .view-profile-button {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+.match-buttons .view-profile-button:hover {
+    background: #3730a3;
+}
+
+
+/* Connect */
+
+.match-buttons .send-request-button {
+    background: #f5f3ff;
+    color: #4f46e5;
+    border: 1px solid #4f46e5;
+}
+
+.match-buttons .send-request-button:hover {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+
+/* No Matches */
+
+.no-matches {
+    max-width: 650px;
+    margin: 30px auto;
+
+    background: #ffffff;
+    border: 1px solid #e5e1ff;
+    border-radius: 18px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.08);
+}
+
+.no-match-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.no-matches h2 {
+    color: #25215c;
+    margin-bottom: 10px;
+}
+
+.no-matches p {
+    color: #777777;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.no-matches a {
+    display: inline-block;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.no-matches a:hover {
+    background: #3730a3;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .matches-page {
+        padding: 25px 15px;
+    }
+
+    .matches-heading h1 {
+        font-size: 26px;
+    }
+
+    .matches-container {
+        padding: 15px;
+    }
+
+    .matches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .match-buttons {
+        flex-direction: column;
+    }
+
+}
+
+/* ==========================================
+   VIEW PUBLIC PROFILE BUTTON
+   ========================================== */
+
+.profile-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.view-public-profile-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.view-public-profile-button:hover {
+    background: #3730a3;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .profile-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .view-public-profile-button {
+        width: 100%;
+    }
+
+}
+/* ==========================================
+   CONNECTIONS PAGE
+========================================== */
+
+.connections-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+.connections-header {
+    margin-bottom: 25px;
+}
+
+
+.connections-header h1 {
+    margin-bottom: 8px;
+}
+
+
+.connections-header p {
+    color: #666;
+}
+
+
+/* STATISTICS */
+
+.connection-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+
+.connection-stat-card {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 20px 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    min-width: 200px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+
+.stat-icon {
+    font-size: 30px;
+}
+
+
+.connection-stat-card h2 {
+    margin: 0;
+
+    color: #4f46e5;
+}
+
+
+.connection-stat-card p {
+    margin: 3px 0 0;
+
+    color: #666;
+}
+
+
+/* SECTION */
+
+.connections-section {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+
+.connections-section h2 {
+    margin-bottom: 5px;
+}
+
+
+.connections-section > p {
+    color: #666;
+}
+
+
+/* SECTION HEADING */
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.connection-number {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 18px;
+}
+
+
+/* CONNECTION CARD */
+
+.connection-card {
+    margin-top: 18px;
+
+    padding: 18px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.connection-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.connection-avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #ede9fe;
+
+    color: #4f46e5;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+
+.connection-info h3 {
+    margin: 0;
+}
+
+
+.connection-info p {
+    margin: 5px 0 0;
+
+    color: #777;
+}
+
+
+/* BUTTONS */
+
+.connection-buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.accept-btn,
+.reject-btn,
+.chat-button,
+.find-button {
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+
+.accept-btn {
+    background: #4f46e5;
+    color: white;
+}
+
+
+.reject-btn {
+    background: #eeeeee;
+    color: #333;
+}
+
+
+.chat-button {
+    background: #4f46e5;
+    color: white;
+}
+
+
+.chat-button:hover,
+.accept-btn:hover {
+    background: #3730a3;
+}
+
+
+/* EMPTY */
+
+.empty-connection {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #666;
+}
+
+
+.empty-connection div {
+    font-size: 35px;
+}
+
+
+.empty-connection h3 {
+    color: #222;
+
+    margin: 10px 0;
+}
+
+
+.find-button {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    background: #4f46e5;
+
+    color: white;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .connection-stats {
+        flex-direction: column;
+    }
+
+    .connection-stat-card {
+        width: auto;
+    }
+
+    .connection-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .connection-buttons {
+        width: 100%;
+    }
+
+    .accept-btn,
+    .reject-btn,
+    .chat-button {
+        text-align: center;
+
+        flex: 1;
+    }
+
+}

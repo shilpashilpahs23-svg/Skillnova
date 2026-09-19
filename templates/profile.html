@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile - SkillNova{% endblock %}
+
+{% block content %}
+
+<main class="profile-page">
+
+    <!-- =================================
+         PAGE HEADER
+         ================================= -->
+
+    <div class="profile-heading">
+
+        <div>
+            <h1>My Profile 👤</h1>
+
+            <p>
+                Manage your information and introduce yourself
+                to other students.
+            </p>
+        </div>
+
+        <!-- VIEW PROFILE BUTTON -->
+        <a
+    href="{{ url_for('student_profile', student_id=student['id']) }}"
+    class="view-public-profile-button">
+    👁 View Profile
+</a>
+
+    </div>
+
+
+    <!-- =================================
+         PROFILE CARD
+         ================================= -->
+
+    <section class="profile-container">
+
+        <!-- PROFILE HEADER -->
+
+        <div class="profile-header">
+
+            <div class="profile-avatar">
+
+                {{ student["full_name"][0] | upper }}
+
+            </div>
+
+            <div class="profile-header-info">
+
+                <h2>
+                    {{ student["full_name"] }}
+                </h2>
+
+                <p>
+                    🎓 {{ student["college"] or "College not added" }}
+                </p>
+
+                <span class="profile-status">
+                    ● Active
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             PROFILE FORM
+             ================================= -->
+
+        <div class="profile-form-card">
+
+            <div class="profile-section-title">
+
+                <div class="profile-section-icon">
+                    ✏️
+                </div>
+
+                <div>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                    <p>
+                        Update your profile information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form method="POST" class="profile-form">
+
+                <!-- FULL NAME -->
+
+                <div class="profile-field">
+
+                    <label for="full_name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="full_name"
+                        name="full_name"
+                        value="{{ student['full_name'] }}"
+                        required>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="profile-field">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        value="{{ student['email'] }}"
+                        readonly>
+
+                    <small>
+                        Email cannot be changed.
+                    </small>
+
+                </div>
+
+
+                <!-- COLLEGE -->
+
+                <div class="profile-field">
+
+                    <label for="college">
+                        College / University
+                    </label>
+
+                    <input
+                        type="text"
+                        id="college"
+                        name="college"
+                        value="{{ student['college'] or '' }}"
+                        placeholder="Enter your college">
+
+                </div>
+
+
+                <!-- BIO -->
+
+                <div class="profile-field">
+
+                    <label for="bio">
+                        About Me
+                    </label>
+
+                    <textarea
+                        id="bio"
+                        name="bio"
+                        rows="5"
+                        placeholder="Tell other students about yourself...">{{ student['bio'] or '' }}</textarea>
+
+                </div>
+
+
+                <!-- SAVE BUTTON -->
+
+                <button
+                    type="submit"
+                    class="save-profile-button">
+
+                    💾 Save Profile
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         MY SKILLS
+         ================================= -->
+
+    <section class="profile-skills">
+
+        <div class="skills-heading">
+
+            <div>
+
+                <h2>
+                    My Skills
+                </h2>
+
+                <p>
+                    Skills you have added to your profile.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('skills') }}"
+                class="add-profile-skill-button">
+
+                + Add Skill
+
+            </a>
+
+        </div>
+
+
+        {% if skills %}
+
+        <div class="profile-skill-list">
+
+            {% for skill in skills %}
+
+            <div class="profile-skill-card">
+
+                <div class="profile-skill-icon">
+                    🎨
+                </div>
+
+                <div class="profile-skill-info">
+
+                    <h3>
+                        {{ skill["skill_name"] }}
+                    </h3>
+
+                    <p>
+                        {{ skill["skill_type"] }}
+                    </p>
+
+                </div>
+
+                <span class="profile-skill-level">
+
+                    {{ skill["level"] }}
+
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <div class="no-skills">
+
+            <div class="no-skills-icon">
+                🎯
+            </div>
+
+            <h3>
+                No skills added yet
+            </h3>
+
+            <p>
+                Add your skills so other students can find you.
+            </p>
+
+            <a href="{{ url_for('skills') }}">
+                Add Your Skills
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- =================================
+         DANGER ZONE
+         ================================= -->
+
+    <section class="danger-zone">
+
+        <div class="danger-icon">
+            ⚠️
+        </div>
+
+        <div class="danger-content">
+
+            <h2>
+                Danger Zone
+            </h2>
+
+            <p>
+                Deleting your account will permanently remove
+                your profile, skills and connections.
+            </p>
+
+            <form
+                method="POST"
+                action="{{ url_for('delete_profile') }}"
+                onsubmit="return confirm('Are you sure you want to permanently delete your profile?');">
+
+                <button
+                    type="submit"
+                    class="delete-profile-button">
+
+                    🗑 Delete My Profile
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}
